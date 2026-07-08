@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [theme, setTheme] = useState("dark");
@@ -246,14 +247,20 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Stylized Monogram Graphic */}
+          {/* Avatar Graphic */}
           <div className="md:col-span-2 flex justify-center md:justify-end">
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center rounded-3xl bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 border border-slate-200 dark:border-slate-800/80 p-8 shadow-inner overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative flex items-center justify-center w-full h-full rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/50 dark:border-slate-800/50 shadow-md">
-                <span className="text-7xl font-black bg-clip-text text-transparent bg-gradient-to-br from-violet-600 via-indigo-600 to-cyan-500 dark:from-violet-400 dark:via-indigo-400 dark:to-cyan-400 select-none">
-                  NM
-                </span>
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl p-1 bg-gradient-to-br from-violet-600 via-indigo-600 to-cyan-500 dark:from-violet-400 dark:via-indigo-400 dark:to-cyan-400 shadow-xl shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-300 group">
+              {/* Rotating glowing border back drop */}
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-violet-600 via-indigo-600 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500 pointer-events-none" />
+              <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-white dark:bg-slate-950 flex items-center justify-center">
+                <Image
+                  src="/avatar.png"
+                  alt="Narasimha Murthy S N Profile Avatar"
+                  fill
+                  sizes="(max-w-768px) 100vw, 300px"
+                  priority
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
             </div>
           </div>
